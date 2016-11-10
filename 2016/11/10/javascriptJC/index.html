@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="javascript高级," />
 
 
 
@@ -84,12 +84,19 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Moyas">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="继承的实现方式混入式继承（mix-in）12345var obj = &amp;#123;&amp;#125;;var obj1 = &amp;#123;name:&quot;adsf&quot;,age:18&amp;#125;;for(var k in obj1)&amp;#123;    obj[k] = obj1[k];&amp;#125;
+原型继承1.使用混入的方式为原型对象添加成员、123456var human = &amp;#123;name:&quot;&quot;,age">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript继承的实现方式">
+<meta property="og:url" content="http://yoursite.com/2016/11/10/javascriptJC/index.html">
 <meta property="og:site_name" content="Moyas">
+<meta property="og:description" content="继承的实现方式混入式继承（mix-in）12345var obj = &amp;#123;&amp;#125;;var obj1 = &amp;#123;name:&quot;adsf&quot;,age:18&amp;#125;;for(var k in obj1)&amp;#123;    obj[k] = obj1[k];&amp;#125;
+原型继承1.使用混入的方式为原型对象添加成员、123456var human = &amp;#123;name:&quot;&quot;,age">
+<meta property="og:updated_time" content="2016-11-10T13:43:29.643Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Moyas">
+<meta name="twitter:title" content="javascript继承的实现方式">
+<meta name="twitter:description" content="继承的实现方式混入式继承（mix-in）12345var obj = &amp;#123;&amp;#125;;var obj1 = &amp;#123;name:&quot;adsf&quot;,age:18&amp;#125;;for(var k in obj1)&amp;#123;    obj[k] = obj1[k];&amp;#125;
+原型继承1.使用混入的方式为原型对象添加成员、123456var human = &amp;#123;name:&quot;&quot;,age">
 
 
 
@@ -110,10 +117,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/10/javascriptJC/"/>
 
 
-  <title> Moyas </title>
+  <title> javascript继承的实现方式 | Moyas </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -134,9 +141,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -223,9 +228,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -245,10 +250,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/11/10/javascriptJC/" itemprop="url">
-                  javascript继承的实现方式
-                </a>
+                javascript继承的实现方式
               
             
           </h1>
@@ -307,142 +309,68 @@
       
 
       
-        
-          <h2 id="继承的实现方式"><a href="#继承的实现方式" class="headerlink" title="继承的实现方式"></a>继承的实现方式</h2><h3 id="混入式继承（mix-in）"><a href="#混入式继承（mix-in）" class="headerlink" title="混入式继承（mix-in）"></a>混入式继承（mix-in）</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;&#125;;</div><div class="line"><span class="keyword">var</span> obj1 = &#123;<span class="attr">name</span>:<span class="string">"adsf"</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> k <span class="keyword">in</span> obj1)&#123;</div><div class="line">    obj[k] = obj1[k];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h2 id="继承的实现方式"><a href="#继承的实现方式" class="headerlink" title="继承的实现方式"></a>继承的实现方式</h2><h3 id="混入式继承（mix-in）"><a href="#混入式继承（mix-in）" class="headerlink" title="混入式继承（mix-in）"></a>混入式继承（mix-in）</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;&#125;;</div><div class="line"><span class="keyword">var</span> obj1 = &#123;<span class="attr">name</span>:<span class="string">"adsf"</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> k <span class="keyword">in</span> obj1)&#123;</div><div class="line">    obj[k] = obj1[k];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="原型继承"><a href="#原型继承" class="headerlink" title="原型继承"></a>原型继承</h3><h4 id="1-使用混入的方式为原型对象添加成员、"><a href="#1-使用混入的方式为原型对象添加成员、" class="headerlink" title="1.使用混入的方式为原型对象添加成员、"></a>1.使用混入的方式为原型对象添加成员、</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> human = &#123;<span class="attr">name</span>:<span class="string">""</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line"></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> k <span class="keyword">in</span> human)&#123;</div><div class="line">    Person.prototype[k] = human[k];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/10/javascriptJC/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+<a id="more"></a>
+<h4 id="2-直接修改原型对象"><a href="#2-直接修改原型对象" class="headerlink" title="2.直接修改原型对象"></a>2.直接修改原型对象</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">Person.prototype.name = <span class="string">""</span>;</div><div class="line">Person.prototype.age = <span class="number">18</span>;</div></pre></td></tr></table></figure>
+<h4 id="3-替换原型对象"><a href="#3-替换原型对象" class="headerlink" title="3.替换原型对象"></a>3.替换原型对象</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> human = &#123;<span class="attr">name</span>:<span class="string">""</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">Person.prototype = human;</div></pre></td></tr></table></figure>
+<h3 id="经典继承"><a href="#经典继承" class="headerlink" title="经典继承"></a>经典继承</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>.create(obj1);</div><div class="line"><span class="comment">//创建出来一个新的对象obj继承自obj1</span></div><div class="line"><span class="comment">//原理就是把obj1设置为obj的原型</span></div></pre></td></tr></table></figure>
+<h4 id="经典继承的兼容性问题"><a href="#经典继承的兼容性问题" class="headerlink" title="经典继承的兼容性问题"></a>经典继承的兼容性问题</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">myCreate</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">    <span class="comment">//判断浏览器有没有Object.create方法</span></div><div class="line">    <span class="keyword">if</span>(<span class="built_in">Object</span>.create)&#123;</div><div class="line">        <span class="comment">//如果有，直接调用</span></div><div class="line">        <span class="keyword">return</span> <span class="built_in">Object</span>.create(obj);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">        F.prototype = obj;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> F();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="为什么不能修改原生对象"><a href="#为什么不能修改原生对象" class="headerlink" title="为什么不能修改原生对象?"></a>为什么不能修改原生对象?</h5><pre><code>因为原生对象是公用的，在多人开发的时候，可能会出现冲突，你修改了，他也修改了，谁的生效呢？
+</code></pre>
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/07/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-07T00:05:21+08:00" content="2016-11-07">
-              2016-11-07
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-
-          
-            
-          
-
-          
-
-          
-          
-
+            <a href="/tags/javascript高级/" rel="tag">#javascript高级</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/07/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/07/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
           </div>
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -450,6 +378,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -469,8 +401,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -540,6 +481,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#继承的实现方式"><span class="nav-number">1.</span> <span class="nav-text">继承的实现方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#混入式继承（mix-in）"><span class="nav-number">1.1.</span> <span class="nav-text">混入式继承（mix-in）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型继承"><span class="nav-number">1.2.</span> <span class="nav-text">原型继承</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-使用混入的方式为原型对象添加成员、"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.使用混入的方式为原型对象添加成员、</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-直接修改原型对象"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.直接修改原型对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-替换原型对象"><span class="nav-number">1.2.3.</span> <span class="nav-text">3.替换原型对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#经典继承"><span class="nav-number">1.3.</span> <span class="nav-text">经典继承</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#经典继承的兼容性问题"><span class="nav-number">1.3.1.</span> <span class="nav-text">经典继承的兼容性问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么不能修改原生对象"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">为什么不能修改原生对象?</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -636,6 +588,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
 
   
 
