@@ -246,6 +246,138 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/18/js原生框架一/" itemprop="url">
+                  javascript原生框架基础到高级(案例开发详解一)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-18T00:13:45+08:00" content="2016-11-18">
+              2016-11-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/javascrip框架/" itemprop="url" rel="index">
+                    <span itemprop="name">javascrip框架</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>框架结构说明</p>
+<ol>
+<li><p>在编写框架的时候，为了防止变量污染，尽量使用沙箱模式 封装框架</p>
+<ul>
+<li>在沙箱内部，如果经常使用全局变量或全局对象的话，最好的做法就是将它们当做实参传入沙箱内。</li>
+</ul>
+</li>
+<li><p>核心函数为moyas，相当于jQuery。最终要暴露给用户使用的</p>
+</li>
+<li><p>实现moyas函数，使用的是 工厂模式 来 创建对象。好处：用户 new 或 不 new 都可以得到正确的对象</p>
+</li>
+<li><p>init构造函数 的 位置</p>
+<ul>
+<li><p>如果放在沙箱内部，用户是无法修改或重写的。所以要容纳更改用户，尽量将构造函数暴露给用户</p>
+</li>
+<li><p>可以把构造函数放在moyas函数上，也可以放在moyas函数原型上。</p>
+</li>
+<li><p>处于jQuery之父，在写简单继承模式时，将构造函数放在其原型上。那么在编写框架时，即延续下来了</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/18/js原生框架一/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/17/元素获取所有子节点/" itemprop="url">
                   元素获取所有子节点
                 </a>
@@ -597,7 +729,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -605,7 +737,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -614,7 +746,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
