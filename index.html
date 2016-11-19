@@ -256,8 +256,255 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/18/js原生框架一/" itemprop="url">
-                  javascript原生框架基础到高级(案例开发详解一)
+                <a class="post-title-link" href="/2016/11/19/js原生框架-css样式/" itemprop="url">
+                  javascript原生框架基础到高级(三)--css样式模块的封装
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-19T23:51:03+08:00" content="2016-11-19">
+              2016-11-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/javascrip框架/" itemprop="url" rel="index">
+                    <span itemprop="name">javascrip框架</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>css样式模块的封装</p>
+<h2 id="each方法的实现"><a href="#each方法的实现" class="headerlink" title="each方法的实现"></a>each方法的实现</h2><p> 1.在写样式之前,先给核心函数添加一个each方法.</p>
+<p>-实现的代码如下<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">moyas.extend(&#123;</div><div class="line"><span class="attr">each</span>: <span class="function"><span class="keyword">function</span> (<span class="params">obj, callback</span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> i = <span class="number">0</span>,</div><div class="line">                l = obj.length;</div><div class="line">            <span class="keyword">for</span> (; i &lt; l; i++) &#123;</div><div class="line">                <span class="keyword">if</span> (callback.call(obj[i], obj[i], i) === <span class="literal">false</span>) <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/19/js原生框架-css样式/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/19/js原生框架-init函数/" itemprop="url">
+                  javascript原生框架基础到高级(二)--init构造函数的完善
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-19T23:43:55+08:00" content="2016-11-19">
+              2016-11-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/javascrip框架/" itemprop="url" rel="index">
+                    <span itemprop="name">javascrip框架</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="完善init构造函数"><a href="#完善init构造函数" class="headerlink" title="完善init构造函数"></a>完善init构造函数</h2><pre><code>+ selector类型：
+    - 无效值： null undefined &apos;&apos; false
+    - 字符串
+        * 选择器：     &apos;div&apos; 根据选择器筛选dom元素，并以伪数组形式 存储在this上
+        * html字符串 &apos;&lt;p&gt;123&lt;/p&gt;&lt;p&gt;456&lt;/p&gt;&apos; &apos;&lt;p&gt;&apos; 将html字符串 转换成 html元素
+    - DOM节点
+    - DOM数组（伪数组）
+    - function：入口函数 DOMContentLoaded
+        * 使用静态属性isReady 存储 dom树是否加载完毕
+        * 判断isReady值， 如果为true，就直接执行传入的函数。
+        * 否则，就给document的DOMContentLoaded事件绑定处理程序，在处理程序中，先将isReady赋值为true，在执行传入的函数。
+</code></pre><ol>
+<li>如何判断字符串为html字符串，必须满足一下条件：<ul>
+<li>以’&lt;’开头</li>
+<li>以’&gt;’结尾</li>
+<li>最小长度为3
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/19/js原生框架-init函数/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/18/js原生框架-基本框架/" itemprop="url">
+                  javascript原生框架基础到高级(一)--jq框架详解
                 </a>
               
             
@@ -337,7 +584,7 @@
 </li>
 <li><p>处于jQuery之父，在写简单继承模式时，将构造函数放在其原型上。那么在编写框架时，即延续下来了</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/18/js原生框架一/#more" rel="contents">
+            <a class="btn" href="/2016/11/18/js原生框架-基本框架/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -504,7 +751,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/10/javascriptJC/" itemprop="url">
+                <a class="post-title-link" href="/2016/11/10/javascript继承/" itemprop="url">
                   javascript继承的实现方式
                 </a>
               
@@ -569,7 +816,7 @@
           <h2 id="继承的实现方式"><a href="#继承的实现方式" class="headerlink" title="继承的实现方式"></a>继承的实现方式</h2><h3 id="混入式继承（mix-in）"><a href="#混入式继承（mix-in）" class="headerlink" title="混入式继承（mix-in）"></a>混入式继承（mix-in）</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;&#125;;</div><div class="line"><span class="keyword">var</span> obj1 = &#123;<span class="attr">name</span>:<span class="string">"adsf"</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> k <span class="keyword">in</span> obj1)&#123;</div><div class="line">    obj[k] = obj1[k];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="原型继承"><a href="#原型继承" class="headerlink" title="原型继承"></a>原型继承</h3><h4 id="1-使用混入的方式为原型对象添加成员、"><a href="#1-使用混入的方式为原型对象添加成员、" class="headerlink" title="1.使用混入的方式为原型对象添加成员、"></a>1.使用混入的方式为原型对象添加成员、</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> human = &#123;<span class="attr">name</span>:<span class="string">""</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line"></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> k <span class="keyword">in</span> human)&#123;</div><div class="line">    Person.prototype[k] = human[k];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/10/javascriptJC/#more" rel="contents">
+            <a class="btn" href="/2016/11/10/javascript继承/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -739,7 +986,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

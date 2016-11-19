@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="js原生框架," />
 
 
 
@@ -84,19 +84,55 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="框架结构说明
+
+在编写框架的时候，为了防止变量污染，尽量使用沙箱模式 封装框架
+
+在沙箱内部，如果经常使用全局变量或全局对象的话，最好的做法就是将它们当做实参传入沙箱内。
+
+
+核心函数为moyas，相当于jQuery。最终要暴露给用户使用的
+
+实现moyas函数，使用的是 工厂模式 来 创建对象。好处：用户 new 或 不 new 都可以得到正确的对象
+
+init构造函数 的 位置
+
+如果放在沙箱">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/11/07/hello-world/index.html">
+<meta property="og:title" content="javascript原生框架基础到高级(一)--jq框架详解">
+<meta property="og:url" content="http://yoursite.com/2016/11/18/js原生框架-基本框架/index.html">
 <meta property="og:site_name" content="Moyas">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-11-10T13:32:35.044Z">
+<meta property="og:description" content="框架结构说明
+
+在编写框架的时候，为了防止变量污染，尽量使用沙箱模式 封装框架
+
+在沙箱内部，如果经常使用全局变量或全局对象的话，最好的做法就是将它们当做实参传入沙箱内。
+
+
+核心函数为moyas，相当于jQuery。最终要暴露给用户使用的
+
+实现moyas函数，使用的是 工厂模式 来 创建对象。好处：用户 new 或 不 new 都可以得到正确的对象
+
+init构造函数 的 位置
+
+如果放在沙箱">
+<meta property="og:updated_time" content="2016-11-19T15:53:21.103Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="javascript原生框架基础到高级(一)--jq框架详解">
+<meta name="twitter:description" content="框架结构说明
+
+在编写框架的时候，为了防止变量污染，尽量使用沙箱模式 封装框架
+
+在沙箱内部，如果经常使用全局变量或全局对象的话，最好的做法就是将它们当做实参传入沙箱内。
+
+
+核心函数为moyas，相当于jQuery。最终要暴露给用户使用的
+
+实现moyas函数，使用的是 工厂模式 来 创建对象。好处：用户 new 或 不 new 都可以得到正确的对象
+
+init构造函数 的 位置
+
+如果放在沙箱">
 
 
 
@@ -117,10 +153,10 @@ Quick">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/07/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/18/js原生框架-基本框架/"/>
 
 
-  <title> Hello World | Moyas </title>
+  <title> javascript原生框架基础到高级(一)--jq框架详解 | Moyas </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -260,7 +296,7 @@ Quick">
             
             
               
-                Hello World
+                javascript原生框架基础到高级(一)--jq框架详解
               
             
           </h1>
@@ -272,11 +308,30 @@ Quick">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-07T00:05:21+08:00" content="2016-11-07">
-              2016-11-07
+            <time itemprop="dateCreated" datetime="2016-11-18T00:13:45+08:00" content="2016-11-18">
+              2016-11-18
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/javascrip框架/" itemprop="url" rel="index">
+                    <span itemprop="name">javascrip框架</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -300,17 +355,33 @@ Quick">
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
+        <p>框架结构说明</p>
+<ol>
+<li><p>在编写框架的时候，为了防止变量污染，尽量使用沙箱模式 封装框架</p>
+<ul>
+<li>在沙箱内部，如果经常使用全局变量或全局对象的话，最好的做法就是将它们当做实参传入沙箱内。</li>
+</ul>
+</li>
+<li><p>核心函数为moyas，相当于jQuery。最终要暴露给用户使用的</p>
+</li>
+<li><p>实现moyas函数，使用的是 工厂模式 来 创建对象。好处：用户 new 或 不 new 都可以得到正确的对象</p>
+</li>
+<li><p>init构造函数 的 位置</p>
+<ul>
+<li><p>如果放在沙箱内部，用户是无法修改或重写的。所以要容纳更改用户，尽量将构造函数暴露给用户</p>
+</li>
+<li><p>可以把构造函数放在moyas函数上，也可以放在moyas函数原型上。</p>
+</li>
+<li><p>处于jQuery之父，在写简单继承模式时，将构造函数放在其原型上。那么在编写框架时，即延续下来了</p>
+<a id="more"></a></li>
+</ul>
+</li>
+<li><p>init创建出来的对象，最终继承自moyas.prototype。所以可以将init对象称为 moyas对象。</p>
+</li>
+<li><p>由于暴露给用户 的 是 moyas 和 其原型。所以在扩展成员时，只能在这两个对象上扩展。<br> 而在函数对象上扩展的成员 为 静态成员。可以直接通过函数名字来访问。但是，在原型上的成员，<br> 必须创建实例来访问。因此为了实现init对象可以访问 moyas原型上的成员，就基于原型来实现继承。</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">global</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> init;</div><div class="line">	<span class="comment">// 核心函数（工厂函数）</span></div><div class="line">	<span class="keyword">var</span> moyas = <span class="function"><span class="keyword">function</span>(<span class="params">selector</span>) </span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">new</span> moyas.fn.init(selector);</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">	<span class="comment">// 核心原型</span></div><div class="line">	moyas.fn = moyas.prototype = &#123;</div><div class="line">		<span class="attr">constructor</span>: moyas</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">	<span class="comment">// 构造函数</span></div><div class="line">	init = moyas.fn.init = <span class="function"><span class="keyword">function</span>(<span class="params">selector</span>) </span>&#123;&#125;;</div><div class="line">	<span class="comment">// 实现init对象继承自moyas原型</span></div><div class="line">	init.prototype = moyas.fn;</div><div class="line"></div><div class="line">	<span class="comment">// 可扩展方法</span></div><div class="line">	<span class="comment">// 如果target为undefined值，那么就是给this扩展成员</span></div><div class="line">	<span class="comment">// 否则就是给target对象扩展。</span></div><div class="line">	moyas.extend = moyas.fn.extend = <span class="function"><span class="keyword">function</span>(<span class="params">source, target</span>) </span>&#123;</div><div class="line">		<span class="keyword">var</span> k;</div><div class="line">		<span class="comment">// 如果target为undefined值，就赋值为this</span></div><div class="line">		<span class="comment">// 给this扩展成员</span></div><div class="line">		<span class="keyword">if</span> (target == <span class="literal">undefined</span>) &#123;</div><div class="line">			target = <span class="keyword">this</span>;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="comment">// target = target || this;</span></div><div class="line"></div><div class="line">		<span class="keyword">for</span>(k <span class="keyword">in</span> source)&#123;</div><div class="line">			target[k] = source[k];</div><div class="line">		&#125;</div><div class="line">	&#125;;</div><div class="line">	<span class="comment">// 暴露给用户</span></div><div class="line">	global.$ = global.moyas = moyas;</div><div class="line">&#125;(<span class="built_in">window</span>));</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -330,17 +401,27 @@ Quick">
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/js原生框架/" rel="tag">#js原生框架</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/11/17/元素获取所有子节点/" rel="next" title="元素获取所有子节点">
+                <i class="fa fa-chevron-left"></i> 元素获取所有子节点
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/10/javascript继承/" rel="prev" title="javascript继承的实现方式">
-                javascript继承的实现方式 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/19/js原生框架-init函数/" rel="prev" title="javascript原生框架基础到高级(二)--init构造函数的完善">
+                javascript原生框架基础到高级(二)--init构造函数的完善 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -475,7 +556,7 @@ Quick">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
