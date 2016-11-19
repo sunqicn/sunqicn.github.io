@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="javascript基础," />
+  <meta name="keywords" content="javascript高级," />
 
 
 
@@ -84,19 +84,40 @@
 
 
 
-<meta name="description" content="使用原生javascript获取元素的所有元素子节点的方法详细介绍
-1利用childrenNodes的方法12345678910111213141516171819202122232425// 实现思路：// 通过childNodes获取到所有的子节点；// 将上述所有的子节点中，元素节点获取出来。/** * [getChildren 获取子元素] * @param  &amp;#123;[type]&amp;#">
+<meta name="description" content="#异常处理
+##常见的异常分类
+
+运行环境的多样性导致的异常（浏览器）
+语法错误，代码错误
+
+异常最大的特征，就是一旦代码出现异常，后面的代码就不会再执行
+##异常捕获
+捕获异常，使用try-catch语句123456try&amp;#123;    //这里写可能出现异常的代码&amp;#125;catch(e)&amp;#123;    //这里的e就是捕获的异常对象    //可以在这里写，出现异常后的处理代码&amp;#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="元素获取所有子节点">
-<meta property="og:url" content="http://yoursite.com/2016/11/17/元素获取所有子节点/index.html">
+<meta property="og:title" content="js异常处理">
+<meta property="og:url" content="http://yoursite.com/2016/11/20/js异常处理/index.html">
 <meta property="og:site_name" content="Moyas">
-<meta property="og:description" content="使用原生javascript获取元素的所有元素子节点的方法详细介绍
-1利用childrenNodes的方法12345678910111213141516171819202122232425// 实现思路：// 通过childNodes获取到所有的子节点；// 将上述所有的子节点中，元素节点获取出来。/** * [getChildren 获取子元素] * @param  &amp;#123;[type]&amp;#">
-<meta property="og:updated_time" content="2016-11-17T16:22:12.308Z">
+<meta property="og:description" content="#异常处理
+##常见的异常分类
+
+运行环境的多样性导致的异常（浏览器）
+语法错误，代码错误
+
+异常最大的特征，就是一旦代码出现异常，后面的代码就不会再执行
+##异常捕获
+捕获异常，使用try-catch语句123456try&amp;#123;    //这里写可能出现异常的代码&amp;#125;catch(e)&amp;#123;    //这里的e就是捕获的异常对象    //可以在这里写，出现异常后的处理代码&amp;#">
+<meta property="og:updated_time" content="2016-11-19T16:16:22.665Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="元素获取所有子节点">
-<meta name="twitter:description" content="使用原生javascript获取元素的所有元素子节点的方法详细介绍
-1利用childrenNodes的方法12345678910111213141516171819202122232425// 实现思路：// 通过childNodes获取到所有的子节点；// 将上述所有的子节点中，元素节点获取出来。/** * [getChildren 获取子元素] * @param  &amp;#123;[type]&amp;#">
+<meta name="twitter:title" content="js异常处理">
+<meta name="twitter:description" content="#异常处理
+##常见的异常分类
+
+运行环境的多样性导致的异常（浏览器）
+语法错误，代码错误
+
+异常最大的特征，就是一旦代码出现异常，后面的代码就不会再执行
+##异常捕获
+捕获异常，使用try-catch语句123456try&amp;#123;    //这里写可能出现异常的代码&amp;#125;catch(e)&amp;#123;    //这里的e就是捕获的异常对象    //可以在这里写，出现异常后的处理代码&amp;#">
 
 
 
@@ -117,10 +138,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/17/元素获取所有子节点/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/20/js异常处理/"/>
 
 
-  <title> 元素获取所有子节点 | Moyas </title>
+  <title> js异常处理 | Moyas </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -260,7 +281,7 @@
             
             
               
-                元素获取所有子节点
+                js异常处理
               
             
           </h1>
@@ -272,8 +293,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-17T23:55:48+08:00" content="2016-11-17">
-              2016-11-17
+            <time itemprop="dateCreated" datetime="2016-11-20T00:13:49+08:00" content="2016-11-20">
+              2016-11-20
             </time>
           </span>
 
@@ -319,11 +340,49 @@
       
 
       
-        <p>使用原生javascript获取元素的所有元素子节点的方法详细介绍</p>
-<h2 id="1利用childrenNodes的方法"><a href="#1利用childrenNodes的方法" class="headerlink" title="1利用childrenNodes的方法"></a>1利用childrenNodes的方法</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 实现思路：</span></div><div class="line"><span class="comment">// 通过childNodes获取到所有的子节点；</span></div><div class="line"><span class="comment">// 将上述所有的子节点中，元素节点获取出来。</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> * [getChildren 获取子元素]</div><div class="line"> * @param  &#123;[type]&#125; parent [父节点]</div><div class="line"> * @return &#123;[type]&#125;        [返回parent的所有子元素]</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getChildren</span>(<span class="params">parent</span>) </span>&#123;</div><div class="line">	<span class="comment">// 存储结果集</span></div><div class="line">	<span class="keyword">var</span> ret = [],</div><div class="line">		nodes;</div><div class="line">	<span class="comment">// 获取parent所有子节点</span></div><div class="line">	nodes = parent.childNodes;</div><div class="line"></div><div class="line">	<span class="comment">// 遍历nodes</span></div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>,l = nodes.length; i &lt; l;i++)&#123;</div><div class="line">		<span class="comment">// 如果遍历到当前子节点类型为元素，即为所要结果。存储在ret内。</span></div><div class="line">		<span class="keyword">if</span>(nodes[i].nodeType === <span class="number">1</span>) &#123;</div><div class="line">			ret.push(nodes[i]);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// 返回结果</span></div><div class="line">	<span class="keyword">return</span> ret;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>#异常处理</p>
+<p>##常见的异常分类</p>
+<ul>
+<li>运行环境的多样性导致的异常（浏览器）</li>
+<li>语法错误，代码错误</li>
+</ul>
+<p>异常最大的特征，就是一旦代码出现异常，后面的代码就不会再执行</p>
+<p>##异常捕获</p>
+<p>捕获异常，使用<code>try-catch</code>语句<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>&#123;</div><div class="line">    <span class="comment">//这里写可能出现异常的代码</span></div><div class="line">&#125;<span class="keyword">catch</span>(e)&#123;</div><div class="line">    <span class="comment">//这里的e就是捕获的异常对象</span></div><div class="line">    <span class="comment">//可以在这里写，出现异常后的处理代码</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<h2 id="2利用firstChild和nextSibling方法实现-推荐"><a href="#2利用firstChild和nextSibling方法实现-推荐" class="headerlink" title="2利用firstChild和nextSibling方法实现(推荐)"></a>2利用firstChild和nextSibling方法实现(推荐)</h2><p>-比起childNodes可以减少一些性能问题,jquery中使用的也是这种方法.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getChildren</span>(<span class="params">parent</span>) </span>&#123;</div><div class="line">			<span class="keyword">var</span> ret = [],</div><div class="line">				elem = parent.firstChild;</div><div class="line"></div><div class="line">			<span class="comment">// 遍历parent所有子节点</span></div><div class="line">			<span class="comment">// 如果有子节点</span></div><div class="line">			<span class="keyword">while</span>(elem)&#123;</div><div class="line">				<span class="comment">// 并且节点类型为元素。存储在ret内</span></div><div class="line">				<span class="keyword">if</span>(elem.nodeType === <span class="number">1</span>) ret.push(elem);</div><div class="line">				<span class="comment">// 更新循环标量</span></div><div class="line">				<span class="comment">// 赋值为下一个兄弟节点</span></div><div class="line">				elem = elem.nextSibling;</div><div class="line">			&#125;</div><div class="line">			<span class="comment">// 返回结果</span></div><div class="line">			<span class="keyword">return</span> ret;</div><div class="line">		&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="3也可以将第二种方法中的while循环改成for循环"><a href="#3也可以将第二种方法中的while循环改成for循环" class="headerlink" title="3也可以将第二种方法中的while循环改成for循环"></a>3也可以将第二种方法中的while循环改成for循环</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getChildren</span>(<span class="params">parent</span>) </span>&#123;</div><div class="line">			<span class="keyword">var</span> ret = [],</div><div class="line">				elem = parent.firstChild;</div><div class="line"></div><div class="line">			<span class="keyword">for</span>(; elem ; elem = elem.nextSibling)&#123;</div><div class="line">				<span class="keyword">if</span>(elem.nodeType === <span class="number">1</span>) ret.push(elem);</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			<span class="keyword">return</span> ret;</div><div class="line">		&#125;</div></pre></td></tr></table></figure>
+<p>异常捕获语句执行的过程为：</p>
+<ol>
+<li><p>代码正常运行, 如果在try中出现了错误, try 里面出现错误的语句后面的代码都不再执行, 直接跳转到 catch 中</p>
+</li>
+<li><p>catch中处理错误信息</p>
+</li>
+<li><p>然后继续执行后面的代码</p>
+</li>
+<li><p>如果 try 中没有出现错误, 那么不走 catch 直接执行后面的代码</p>
+</li>
+</ol>
+<p>通过<code>try-catch</code>语句进行异常捕获之后，代码将会继续执行，而不会中断。</p>
+<p><strong>注意：</strong></p>
+<ul>
+<li>语法错误异常用<code>try-catch</code>语句无法捕获，因为在预解析阶段，语法错误会直接检测出来，而不会等到运行的时候才报错。</li>
+<li>try-catch在一般日常开发中基本用不到，但是如果要写框架什么的，用的会非常多。因为这个会让框架变得健壮</li>
+</ul>
+<p>##抛出异常</p>
+<p>如何手动的抛出异常呢？</p>
+<blockquote>
+<p>案例：自己写的一个函数，需要一个参数，如果用户不传参数，此时想直接给用户抛出异常，就需要了解如何抛出异常。</p>
+</blockquote>
+<p>抛出异常使用<code>throw</code>关键字，语法如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">throw</span> 异常对象;</div></pre></td></tr></table></figure></p>
+<p>异常对象一般是用<code>new Error(&quot;异常消息&quot;)</code>, 也可以使用任意对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">para</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(para == <span class="literal">undefined</span>)&#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"请传递参数"</span>);</div><div class="line">        <span class="comment">//这里也可以使用自定义的对象</span></div><div class="line">        <span class="keyword">throw</span> &#123;<span class="string">"id"</span>:<span class="number">1</span>, <span class="attr">msg</span>:<span class="string">"参数未传递"</span>&#125;;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">try</span>&#123;</div><div class="line">    test();</div><div class="line">&#125;<span class="keyword">catch</span>(e)&#123;</div><div class="line">    <span class="built_in">console</span>.log(e);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>##异常的传递机制</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    f2(); <span class="comment">// f1 称为调用者, 或主调函数, f2 称为被调用者, 或被调函数</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    f3();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f3</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>( <span class="string">'error'</span> );</div><div class="line">&#125;</div><div class="line">f1();</div></pre></td></tr></table></figure>
+<p>当在被调函数内发生异常的时候，异常会一级一级往上抛出。</p>
+<p>##异常捕获语句的完整模式</p>
+<p>异常捕获语句的完整模式为<code>try-catch-finally</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">    <span class="comment">//可能出现错误的代码</span></div><div class="line">&#125; <span class="keyword">catch</span> ( e ) &#123;</div><div class="line">    <span class="comment">//如果出现错误就执行</span></div><div class="line">&#125; <span class="keyword">finally</span> &#123;</div><div class="line">    <span class="comment">//结束 try 这个代码块之前执行, 即最后执行</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>finally</code>中的代码，不管有没有发生异常，都会执行。一般用在后端语言中，用来释放资源，JavaScript中很少会用到</p>
+
       
     </div>
 
@@ -345,7 +404,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/javascript基础/" rel="tag">#javascript基础</a>
+            <a href="/tags/javascript高级/" rel="tag">#javascript高级</a>
           
         </div>
       
@@ -354,17 +413,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/10/javascript继承/" rel="next" title="javascript继承的实现方式">
-                <i class="fa fa-chevron-left"></i> javascript继承的实现方式
+              <a href="/2016/11/19/js原生框架-css样式/" rel="next" title="javascript原生框架基础到高级(三)--css样式模块的封装">
+                <i class="fa fa-chevron-left"></i> javascript原生框架基础到高级(三)--css样式模块的封装
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/18/js原生框架-基本框架/" rel="prev" title="javascript原生框架基础到高级(一)--jq框架详解">
-                javascript原生框架基础到高级(一)--jq框架详解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -498,7 +553,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1利用childrenNodes的方法"><span class="nav-number">1.</span> <span class="nav-text">1利用childrenNodes的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2利用firstChild和nextSibling方法实现-推荐"><span class="nav-number">2.</span> <span class="nav-text">2利用firstChild和nextSibling方法实现(推荐)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3也可以将第二种方法中的while循环改成for循环"><span class="nav-number">3.</span> <span class="nav-text">3也可以将第二种方法中的while循环改成for循环</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
