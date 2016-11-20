@@ -321,28 +321,15 @@
           <p>1.attr方法<br>2.html方法<br>3.text方法<br>4.val方法<br>5.prop方法</p>
 <h3 id="attr方法：（setAttribute-和-getAttribute）"><a href="#attr方法：（setAttribute-和-getAttribute）" class="headerlink" title="attr方法：（setAttribute 和 getAttribute）"></a>attr方法：（setAttribute 和 getAttribute）</h3><ol>
 <li>功能：获取（设置）属性节点值</li>
-<li>实现思路<ul>
+<li><p>实现思路</p>
+<ul>
 <li>给原型添加attr方法，定义两个参数：属性节点名字name 以及 属性节点值</li>
 <li>如果只传入一个参数<ul>
 <li>如果参数类型为对象，表示设置多个属性节点值</li>
 <li>否则，获取指定的属性节点值（默认获取第一个dom元素的属性节点值）</li>
 </ul>
 </li>
-<li>如果传入两个参数，表示设置单个属性节点值。</li>
-</ul>
-</li>
-</ol>
-<h3 id="html方法："><a href="#html方法：" class="headerlink" title="html方法："></a>html方法：</h3><ol>
-<li>功能:<ul>
-<li>不传入参数，表示 获取指定dom元素的innerHTML属性自</li>
-<li>否则，表示 设置指定dom元素的innerHTML属性</li>
-</ul>
-</li>
-<li><p>实现思路</p>
-<ul>
-<li>判断 是否传入参数</li>
-<li>如果没传，获取itcast对象上第一个dom元素的innerHTML属性值</li>
-<li>否则, 给itcast对象上每一个dom元素设置innerHTML属性。
+<li>如果传入两个参数，表示设置单个属性节点值。
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/11/20/js原生框架-属性模块/#more" rel="contents">
               阅读全文 &raquo;
