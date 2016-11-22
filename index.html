@@ -256,6 +256,136 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/22/js原生框架-文档处理/" itemprop="url">
+                  javascript原生框架基础到高级(五)--文档处理模块
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-22T16:19:39+08:00" content="2016-11-22">
+              2016-11-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/javascrip框架/" itemprop="url" rel="index">
+                    <span itemprop="name">javascrip框架</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="appendTo方法"><a href="#appendTo方法" class="headerlink" title="appendTo方法"></a>appendTo方法</h3><ul>
+<li>语法：<moyas对象>.appendTo(target)<ul>
+<li>target类型 选择器、dom元素、dom数组</li>
+<li>统一target类型 为 moyas对象：为了方便操作</li>
+</ul>
+</li>
+<li>实现思路<ul>
+<li>统一target类型，定义新增节点变量node，临时存储要分配的节点</li>
+<li>定义ret数组变量，用来存储总共分配出去的节点</li>
+<li>遍历this上的每一个dom元素，在遍历target上的每一个dom元素</li>
+<li>首先判断当前dom元素是否为target上的第一个dom元素</li>
+<li>如果为真，就不克隆节点，直接将要被添加的节点赋值给node</li>
+<li>如果为假，就要深克隆节点，在赋值给node</li>
+<li>使用遍历target当前的dom元素 追加 指定节点node</li>
+<li>两层循环结束，操作完成。</li>
+<li>最后将ret转换成moyas对象，作为appendTo方法的返回值。实现链式编程
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/22/js原生框架-文档处理/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/20/js原生框架-属性模块/" itemprop="url">
                   javascript原生框架基础到高级(四)--属性模块
                 </a>
@@ -1235,7 +1365,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

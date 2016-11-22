@@ -1,0 +1,790 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javascript高级,js原生框架," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="appendTo方法
+语法：.appendTo(target)
+target类型 选择器、dom元素、dom数组
+统一target类型 为 moyas对象：为了方便操作
+
+
+实现思路
+统一target类型，定义新增节点变量node，临时存储要分配的节点
+定义ret数组变量，用来存储总共分配出去的节点
+遍历this上的每一个dom元素，在遍历target上的每一个dom元素
+首先判断当前dom元素是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript原生框架基础到高级(五)--文档处理模块">
+<meta property="og:url" content="http://yoursite.com/2016/11/22/js原生框架-文档处理/index.html">
+<meta property="og:site_name" content="Sunqi's Blog">
+<meta property="og:description" content="appendTo方法
+语法：.appendTo(target)
+target类型 选择器、dom元素、dom数组
+统一target类型 为 moyas对象：为了方便操作
+
+
+实现思路
+统一target类型，定义新增节点变量node，临时存储要分配的节点
+定义ret数组变量，用来存储总共分配出去的节点
+遍历this上的每一个dom元素，在遍历target上的每一个dom元素
+首先判断当前dom元素是">
+<meta property="og:updated_time" content="2016-11-22T08:25:04.179Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript原生框架基础到高级(五)--文档处理模块">
+<meta name="twitter:description" content="appendTo方法
+语法：.appendTo(target)
+target类型 选择器、dom元素、dom数组
+统一target类型 为 moyas对象：为了方便操作
+
+
+实现思路
+统一target类型，定义新增节点变量node，临时存储要分配的节点
+定义ret数组变量，用来存储总共分配出去的节点
+遍历this上的每一个dom元素，在遍历target上的每一个dom元素
+首先判断当前dom元素是">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/22/js原生框架-文档处理/"/>
+
+
+  <title> javascript原生框架基础到高级(五)--文档处理模块 | Sunqi's Blog </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?6f497ee8f54b84491a69a0bf482eb076";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Sunqi's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Sunqi</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                javascript原生框架基础到高级(五)--文档处理模块
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-22T16:19:39+08:00" content="2016-11-22">
+              2016-11-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/javascrip框架/" itemprop="url" rel="index">
+                    <span itemprop="name">javascrip框架</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="appendTo方法"><a href="#appendTo方法" class="headerlink" title="appendTo方法"></a>appendTo方法</h3><ul>
+<li>语法：<moyas对象>.appendTo(target)<ul>
+<li>target类型 选择器、dom元素、dom数组</li>
+<li>统一target类型 为 moyas对象：为了方便操作</li>
+</ul>
+</moyas对象></li>
+<li>实现思路<ul>
+<li>统一target类型，定义新增节点变量node，临时存储要分配的节点</li>
+<li>定义ret数组变量，用来存储总共分配出去的节点</li>
+<li>遍历this上的每一个dom元素，在遍历target上的每一个dom元素</li>
+<li>首先判断当前dom元素是否为target上的第一个dom元素</li>
+<li>如果为真，就不克隆节点，直接将要被添加的节点赋值给node</li>
+<li>如果为假，就要深克隆节点，在赋值给node</li>
+<li>使用遍历target当前的dom元素 追加 指定节点node</li>
+<li>两层循环结束，操作完成。</li>
+<li>最后将ret转换成moyas对象，作为appendTo方法的返回值。实现链式编程<a id="more"></a>
+<h3 id="append方法"><a href="#append方法" class="headerlink" title="append方法"></a>append方法</h3></li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>语法：<moyas对象>.append(source);</moyas对象></li>
+<li>功能：将source上的所有dom元素 追加到 moyas对象 上</li>
+<li>实现思路<ul>
+<li>统一source类型，为moyas对象。</li>
+<li>source.appendTo(this)</li>
+<li>return this;</li>
+</ul>
+</li>
+</ol>
+<h3 id="prependTo方法"><a href="#prependTo方法" class="headerlink" title="prependTo方法"></a>prependTo方法</h3><ol>
+<li>语法：<moyas对象>.prependTo(target);</moyas对象></li>
+<li>功能：将moyas对象上的每一个dom元素 追加到 target 最前边 insertBefore</li>
+<li>实现思路<ul>
+<li>统一target类型， 为 moyas对象</li>
+<li>定义node变量，临时存储被追加的节点。定义ret数组，存储所有被追加的节点</li>
+<li>先遍历target上的每一个dom元素，</li>
+<li>定义变量firstChild，临时存储当前目标dom元素的第一个子节点，在遍历this上每一个dom元素</li>
+<li>判断当前遍历的dom是否为target上的第一个dom元素</li>
+<li>如果为真，此时不需要克隆节点</li>
+<li>否则，要深克隆节点</li>
+<li>将上述得到的节点，push到ret内</li>
+<li>调用insertBefore方法 追加 节点，此时第一个参数为追加新的节点，第二个参数为 firstChild<br>  在 firstChild 之前追加 新节点。</li>
+<li>两层循环结束，操作完成</li>
+<li>将ret转换成moyas对象，作为prependTo方法的返回值。实现链式编程。</li>
+</ul>
+</li>
+</ol>
+<h3 id="prepend方法"><a href="#prepend方法" class="headerlink" title="prepend方法"></a>prepend方法</h3><ol>
+<li>语法：<moyas对象>.prepend(source);</moyas对象></li>
+<li>功能：把source上的所有的dom元素，添加到this上的最前边</li>
+<li>实现思路：<ul>
+<li>统一source类型，为moyas对象</li>
+<li>通过source调用prependTo方法，将source上的所有dom添加到this上的最前边</li>
+<li>return this实现链式编程</li>
+</ul>
+</li>
+</ol>
+<h3 id="next方法"><a href="#next方法" class="headerlink" title="next方法"></a>next方法</h3><ol>
+<li>功能：获取moyas对象上所有dom元素的下一个兄弟元素（nextSibling）</li>
+<li>语法：<moyas对象>.next(); 返回值类型：moyas对象</moyas对象></li>
+<li>实现思路<ul>
+<li>定义ret数组，存储所有dom的下一个兄弟元素</li>
+<li>遍历this上的所有dom元素</li>
+<li>遍历当前dom元素下面的所有兄弟，如果类型为 元素，将此元素存储ret内，结束循环。</li>
+<li>两层循环结束，将ret转换成moyas对象，作为next方法的返回值。</li>
+</ul>
+</li>
+</ol>
+<h3 id="nextAll方法"><a href="#nextAll方法" class="headerlink" title="nextAll方法"></a>nextAll方法</h3><ol>
+<li>功能：获取moyas对象上所有dom元素下面的所有兄弟元素（nextSibling）</li>
+<li>语法：<moyas对象>.nextAll(); 返回值类型：moyas对象</moyas对象></li>
+<li>实现思路<ul>
+<li>定义ret数组，存储所有dom下面的所有兄弟元素</li>
+<li>遍历this上的所有dom元素</li>
+<li>遍历当前dom元素下面的所有兄弟节点，如果类型为 元素，将此元素存储ret内。</li>
+<li>两层循环结束，将ret去重后，转换成moyas对象，作为nextAll方法的返回值。</li>
+</ul>
+</li>
+</ol>
+<h3 id="before方法（选做）"><a href="#before方法（选做）" class="headerlink" title="before方法（选做）"></a>before方法（选做）</h3><ol>
+<li>功能：</li>
+<li>语法: <moyas对象>.before(source)</moyas对象></li>
+<li>实现思路<ul>
+<li>统一source类型为 moyas对象</li>
+<li>遍历this上的每一个dom元素</li>
+<li>在遍历source上的每一个dom元素</li>
+<li>判断当前遍历this的dom元素的 索引是否为0</li>
+<li>如果为0，不需要拷节点</li>
+<li>否则要深拷贝节点</li>
+<li>先拿到当前遍历this的dom元素的父节点，调用insertBefore方法在其前面添加上面得到的新节点</li>
+<li>两层循环完毕，操作完成</li>
+<li>return this实现链式编程</li>
+</ul>
+</li>
+</ol>
+<h3 id="after方法（选做）"><a href="#after方法（选做）" class="headerlink" title="after方法（选做）"></a>after方法（选做）</h3><ol>
+<li>功能：</li>
+<li>语法: <moyas对象>.after(source)</moyas对象></li>
+<li><p>实现思路</p>
+<ul>
+<li>定义nextSibling变量，存储dom元素的下一个兄弟节点</li>
+<li>统一source类型为 moyas对象</li>
+<li>遍历this上的每一个dom元素</li>
+<li>在遍历source上的每一个dom元素</li>
+<li>判断当前遍历this的dom元素的 索引是否为0</li>
+<li>如果为0，不需要拷节点</li>
+<li>否则要深拷贝节点</li>
+<li>先拿到当前遍历this的dom元素的父节点，调用insertBefore方法在nextSibling前面添加上面得到的新节点</li>
+<li>两层循环完毕，操作完成</li>
+<li>return this实现链式编程<h3 id="moyas-unique方法"><a href="#moyas-unique方法" class="headerlink" title="moyas.unique方法"></a>moyas.unique方法</h3></li>
+</ul>
+</li>
+<li><p>功能：实现数组元素去重</p>
+</li>
+<li>语法：var newRet = moyas.unique(arr);</li>
+<li>实现思路<ul>
+<li>定义空数组对象ret。存储去重后元素</li>
+<li>遍历原数组，如果当前遍历到的元素在ret中不存在，就添加到ret内</li>
+<li>循环结束，ret存储的就是去重后的元素</li>
+<li>返回ret</li>
+</ul>
+</li>
+<li>兼容IE8 indexOf方法<ul>
+<li>首先判断当前浏览器是否支持indexOf方法</li>
+<li>如果不支持，就给数组对象的原型添加 indexOf方法</li>
+<li>遍历this上的所有元素</li>
+<li>如果遍历到的当前元素 和 指定参数值 相同，就直接返回其 索引值。结束循环</li>
+<li>如果在整个上述循环都没有返回值，那么表示不存在指定参数值，就返回 -1。</li>
+</ul>
+</li>
+</ol>
+<h3 id="prev方法-previousSibling"><a href="#prev方法-previousSibling" class="headerlink" title="prev方法 previousSibling"></a>prev方法 previousSibling</h3><h3 id="prevAll方法"><a href="#prevAll方法" class="headerlink" title="prevAll方法"></a>prevAll方法</h3><h3 id="详细代码"><a href="#详细代码" class="headerlink" title="详细代码"></a>详细代码</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">   moyas.extend(&#123;</div><div class="line">	<span class="attr">unique</span>: <span class="function"><span class="keyword">function</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">		<span class="comment">// 存储去重后的结果</span></div><div class="line">		<span class="keyword">var</span> ret = [];</div><div class="line">		<span class="comment">// 遍历原数组arr</span></div><div class="line">		moyas.each(arr, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">			<span class="comment">// 判断ret是否存在当前遍历到的元素</span></div><div class="line">			<span class="comment">// 如果不存在将其添加到ret中</span></div><div class="line">			<span class="keyword">if</span>(ret.indexOf(<span class="keyword">this</span>) === <span class="number">-1</span>) ret.push(<span class="keyword">this</span>);</div><div class="line">		&#125;);</div><div class="line">		<span class="comment">// 将ret返回</span></div><div class="line">		<span class="keyword">return</span> ret;</div><div class="line">	&#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 兼容数组对象的indexOf方法</span></div><div class="line">   	(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">   		<span class="comment">// 如果浏览器不支持indexOf方法</span></div><div class="line">   		<span class="comment">// 那么就给数组对象的原型添加indexOf方法</span></div><div class="line">   		<span class="keyword">if</span>(!<span class="built_in">Array</span>.prototype.indexOf)&#123;</div><div class="line">   			<span class="built_in">Array</span>.prototype.indexOf = <span class="function"><span class="keyword">function</span>(<span class="params">val</span>) </span>&#123;</div><div class="line">   				<span class="comment">// 遍历this</span></div><div class="line">   				<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>,l = <span class="keyword">this</span>.length; i &lt; l; i++)&#123;</div><div class="line">   					<span class="comment">// 如果遍历到的当前元素和val相同，返回其索引值</span></div><div class="line">   					<span class="keyword">if</span>(<span class="keyword">this</span>[i] == val) <span class="keyword">return</span> i;</div><div class="line">   				&#125;</div><div class="line">   				<span class="comment">// 表示具有指定val元素，返回 -1</span></div><div class="line">   				<span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">   			&#125;;</div><div class="line">   		&#125;</div><div class="line">   	&#125;());</div></pre></td></tr></table></figure>
+<p>具体方法代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div></pre></td><td class="code"><pre><div class="line">moyas.extend(&#123;</div><div class="line">		<span class="attr">unique</span>: <span class="function"><span class="keyword">function</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">			<span class="comment">// 存储去重后的结果</span></div><div class="line">			<span class="keyword">var</span> ret = [];</div><div class="line">			<span class="comment">// 遍历原数组arr</span></div><div class="line">			moyas.each(arr, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">				<span class="comment">// 判断ret是否存在当前遍历到的元素</span></div><div class="line">				<span class="comment">// 如果不存在将其添加到ret中</span></div><div class="line">				<span class="keyword">if</span>(ret.indexOf(<span class="keyword">this</span>) === <span class="number">-1</span>) ret.push(<span class="keyword">this</span>);</div><div class="line">			&#125;);</div><div class="line">			<span class="comment">// 将ret返回</span></div><div class="line">			<span class="keyword">return</span> ret;</div><div class="line">		&#125;</div><div class="line">	&#125;);</div><div class="line">	moyas.fn.extend(&#123;</div><div class="line">		<span class="attr">appendTo</span>: <span class="function"><span class="keyword">function</span>(<span class="params">target</span>) </span>&#123;</div><div class="line">			<span class="keyword">var</span> node,</div><div class="line">				ret = [];</div><div class="line">			<span class="comment">// 统一target类型 为moyas对象（为了方便操作）</span></div><div class="line">			target = moyas(target);</div><div class="line">			<span class="comment">// 遍历this上的每一个dom元素</span></div><div class="line">			<span class="keyword">this</span>.each(<span class="function"><span class="keyword">function</span>(<span class="params">v</span>) </span>&#123;</div><div class="line">				<span class="comment">// 在遍历目标dom元素</span></div><div class="line">				target.each(<span class="function"><span class="keyword">function</span>(<span class="params">t, i</span>) </span>&#123;</div><div class="line">					<span class="comment">// 如果当前dom元素为 目标上的第一个.不拷贝节点</span></div><div class="line">					<span class="comment">// 否则拷贝节点</span></div><div class="line">					node = i === <span class="number">0</span> ? v : v.cloneNode(<span class="literal">true</span>);</div><div class="line">					<span class="comment">// 将被追加的节点,添加到ret内</span></div><div class="line">					ret.push(node);</div><div class="line">					<span class="comment">// 将节点追加到指定的目标dom元素上.</span></div><div class="line">					t.appendChild(node);</div><div class="line">				&#125;);</div><div class="line">			&#125;);</div><div class="line">			<span class="comment">// 将每一个添加的dom元素,转换成moyas对象返回,实现链式编程</span></div><div class="line">			<span class="comment">// 原因:在添加样式时,如果不这样做的话,只会给没克隆的节点添加样式.</span></div><div class="line">			<span class="keyword">return</span> moyas(ret);</div><div class="line">		&#125;,</div><div class="line">		<span class="attr">append</span>: <span class="function"><span class="keyword">function</span>(<span class="params">source</span>) </span>&#123;</div><div class="line">			source = moyas(source);</div><div class="line">			source.appendTo(<span class="keyword">this</span>);</div><div class="line">			<span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">		&#125;,</div><div class="line">		<span class="attr">prependTo</span>: <span class="function"><span class="keyword">function</span>(<span class="params">target</span>) </span>&#123;</div><div class="line">			<span class="keyword">var</span> node,</div><div class="line">				firstChild,</div><div class="line">				self = <span class="keyword">this</span>,</div><div class="line">				ret = [];</div><div class="line"></div><div class="line">			target = moyas(target);</div><div class="line">			<span class="comment">// 遍历target上的每一个目标dom元素</span></div><div class="line">			target.each(<span class="function"><span class="keyword">function</span>(<span class="params">elem, i</span>) </span>&#123;</div><div class="line">				<span class="comment">// 缓存当前目标dom元素的第一个子节点</span></div><div class="line">				firstChild = elem.firstChild;</div><div class="line">				<span class="comment">// 在遍历this上的每一个dom元素</span></div><div class="line">				self.each(<span class="function"><span class="keyword">function</span>(<span class="params">dom</span>) </span>&#123;</div><div class="line">					<span class="comment">// 判断是否目标上第一个dom元素</span></div><div class="line">					<span class="comment">// 如果是，不需要克隆节点</span></div><div class="line">					<span class="comment">// 否则需要深克节点</span></div><div class="line">					<span class="comment">// 将得到的节点赋值给node</span></div><div class="line">					node = i === <span class="number">0</span> ? dom : dom.cloneNode(<span class="literal">true</span>);</div><div class="line">					<span class="comment">// 将上面得到的节点添加到ret中</span></div><div class="line">					ret.push(node);</div><div class="line">					<span class="comment">// 使用insertBefor给当前目标元素，在firstChild添加node节点</span></div><div class="line">					elem.insertBefore(node, firstChild);</div><div class="line">				&#125;);</div><div class="line">			&#125;);</div><div class="line"></div><div class="line">			<span class="keyword">return</span> moyas(ret);</div><div class="line">		&#125;,</div><div class="line">		<span class="attr">prepend</span>: <span class="function"><span class="keyword">function</span>(<span class="params">source</span>) </span>&#123;</div><div class="line">			source = moyas(source);</div><div class="line">			source.prependTo(<span class="keyword">this</span>);</div><div class="line">			<span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">		&#125;,</div><div class="line">		<span class="attr">next</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">			<span class="comment">// 存储所用dom的下一个兄弟元素</span></div><div class="line">			<span class="keyword">var</span> ret = [];</div><div class="line">			<span class="comment">// 遍历this上的所有dom元素</span></div><div class="line">			<span class="keyword">this</span>.each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">				<span class="comment">// 在遍历当前dom元素下面所有的兄弟元素</span></div><div class="line">				<span class="keyword">for</span>(<span class="keyword">var</span> node = <span class="keyword">this</span>.nextSibling; node ; node = node.nextSibling)&#123;</div><div class="line">					<span class="comment">// 如果当前兄弟节点,为元素节点</span></div><div class="line">					<span class="comment">// 即为结果,将其添加ret内,并结束循环</span></div><div class="line">					<span class="keyword">if</span>(node.nodeType === <span class="number">1</span>)&#123;</div><div class="line">						ret.push(node);</div><div class="line">						<span class="keyword">break</span>;</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">			&#125;);</div><div class="line">			<span class="comment">// 将ret转换成moyas对象,返回</span></div><div class="line">			<span class="keyword">return</span> moyas(ret);</div><div class="line">		&#125;,</div><div class="line">		<span class="attr">nextAll</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">			<span class="keyword">var</span> ret = [],</div><div class="line">				node;</div><div class="line">			<span class="keyword">this</span>.each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">				<span class="keyword">for</span>(node = <span class="keyword">this</span>.nextSibling; node ; node = node.nextSibling)&#123;</div><div class="line">					<span class="keyword">if</span>(node.nodeType === <span class="number">1</span>) ret.push(node);</div><div class="line">				&#125;</div><div class="line">			&#125;);</div><div class="line"></div><div class="line">			<span class="keyword">return</span> moyas(moyas.unique(ret));</div><div class="line">		&#125;,</div><div class="line">		<span class="attr">before</span>: <span class="function"><span class="keyword">function</span>(<span class="params">source</span>) </span>&#123;</div><div class="line">			<span class="keyword">var</span> node;</div><div class="line">			source = moyas(source);</div><div class="line">			<span class="keyword">this</span>.each(<span class="function"><span class="keyword">function</span>(<span class="params">dom, i</span>) </span>&#123;</div><div class="line">				source.each(<span class="function"><span class="keyword">function</span>(<span class="params">elem</span>) </span>&#123;</div><div class="line">					node = i === <span class="number">0</span> ? elem : elem.cloneNode(<span class="literal">true</span>);</div><div class="line">					<span class="comment">// 获取dom的父节点，调用insertBefore方法在dom前添加新的子节点node</span></div><div class="line">					dom.parentNode.insertBefore(node, dom);</div><div class="line">				&#125;);</div><div class="line">			&#125;);</div><div class="line">			<span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">		&#125;,</div><div class="line">		<span class="attr">after</span>: <span class="function"><span class="keyword">function</span>(<span class="params">source</span>) </span>&#123;</div><div class="line">			<span class="keyword">var</span> node,</div><div class="line">				nextSibling;</div><div class="line">			source = moyas(source);</div><div class="line">			<span class="keyword">this</span>.each(<span class="function"><span class="keyword">function</span>(<span class="params">dom, i</span>) </span>&#123;</div><div class="line">				nextSibling = dom.nextSibling;</div><div class="line">				source.each(<span class="function"><span class="keyword">function</span>(<span class="params">elem</span>) </span>&#123;</div><div class="line">					node = i === <span class="number">0</span> ? elem : elem.cloneNode(<span class="literal">true</span>);</div><div class="line">					<span class="comment">// 获取dom的父节点，调用insertBefore方法在dom前添加新的子节点node</span></div><div class="line">					dom.parentNode.insertBefore(node, nextSibling);</div><div class="line">				&#125;);</div><div class="line">			&#125;);</div><div class="line">			<span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;);</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript高级/" rel="tag">#javascript高级</a>
+          
+            <a href="/tags/js原生框架/" rel="tag">#js原生框架</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/20/js原生框架-属性模块/" rel="next" title="javascript原生框架基础到高级(四)--属性模块">
+                <i class="fa fa-chevron-left"></i> javascript原生框架基础到高级(四)--属性模块
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="Sunqi" />
+          <p class="site-author-name" itemprop="name">Sunqi</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/moyas" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/345520134" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#appendTo方法"><span class="nav-number">1.</span> <span class="nav-text">appendTo方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#append方法"><span class="nav-number">2.</span> <span class="nav-text">append方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#prependTo方法"><span class="nav-number">3.</span> <span class="nav-text">prependTo方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#prepend方法"><span class="nav-number">4.</span> <span class="nav-text">prepend方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#next方法"><span class="nav-number">5.</span> <span class="nav-text">next方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nextAll方法"><span class="nav-number">6.</span> <span class="nav-text">nextAll方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#before方法（选做）"><span class="nav-number">7.</span> <span class="nav-text">before方法（选做）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#after方法（选做）"><span class="nav-number">8.</span> <span class="nav-text">after方法（选做）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#moyas-unique方法"><span class="nav-number">9.</span> <span class="nav-text">moyas.unique方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#prev方法-previousSibling"><span class="nav-number">10.</span> <span class="nav-text">prev方法 previousSibling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#prevAll方法"><span class="nav-number">11.</span> <span class="nav-text">prevAll方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#详细代码"><span class="nav-number">12.</span> <span class="nav-text">详细代码</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sunqi</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
