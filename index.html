@@ -256,6 +256,221 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/23/js原生框架-事件处理/" itemprop="url">
+                  javascript原生框架基础到高级(六)--事件处理
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-23T20:54:42+08:00" content="2016-11-23">
+              2016-11-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/javascrip框架/" itemprop="url" rel="index">
+                    <span itemprop="name">javascrip框架</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h3><ol>
+<li><p>DOM0方式</p>
+<ul>
+<li>通过dom元素的（on + 事件名称）属性来绑定事件，并且赋值为 一个字符串</li>
+<li>上述字符串为 执行该事件的代码块（逻辑）</li>
+<li>缺点: 可读性 以及 可维护性不好。</li>
+</ul>
+</li>
+<li><p>DOM0方式的加强版</p>
+<ul>
+<li>通过dom元素的（on + 事件名称）属性来绑定事件，并且赋值为 事件处理函数</li>
+<li>缺点: 定义很多的全局函数，容易造成内存过大损耗。依然没有解决js代码 和 html的耦合度问题</li>
+</ul>
+</li>
+<li><p>IE标准：</p>
+<ul>
+<li>通过attachEvent方法来绑定事件</li>
+<li>语法：dom.attachEvent(type, callback)</li>
+<li>移除事件：detachEvent(type, callback)<ul>
+<li>注意：如果想要删除某个事件的处理函数，不能将该处理函数定义为匿名的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>W3C标准</p>
+<ul>
+<li>通过addEventListener方法来给dom元素绑定事件</li>
+<li>语法: dom.addEventListener(type, callback, useCapture) useCapture默认值为 false</li>
+<li>移除事件：removeEventListener(type, callback)<ul>
+<li>注意：如果想要删除某个事件的处理函数，不能将该处理函数定义为匿名的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>事件流</p>
+<ul>
+<li>概念：用户在触发某一动作时，页面所做相关反映的过程。</li>
+<li>三个阶段：<ul>
+<li>事件捕获阶段</li>
+<li>处于事件源阶段</li>
+<li>冒泡阶段</li>
+</ul>
+</li>
+<li>事件流种类：<ul>
+<li>捕获型事件流: 事件处理函数 是在 事件的捕获阶段执行</li>
+<li>冒泡型事件流：事件处理函数 是在 事件的冒泡阶段执行</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>attachEvent 和 addEventListener 区别</p>
+<ul>
+<li>参数个数不同</li>
+<li>事件类型 传值也不同<ul>
+<li>IE：要+ ‘on’前缀</li>
+<li>W3C：不需要</li>
+</ul>
+</li>
+<li>在绑定多个事件处理函数时，IE在执行处理函数时，顺序不定（得看版本）；<br>而W3C，按照队列结构来依次执行事件的处理函数</li>
+<li>在事件处理函数内this指向不同<ul>
+<li>IE:  window</li>
+<li>w3c: 返回正在执行事件处理函数的 dom元素</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>addEvent方法</p>
+<ul>
+<li>根据浏览器能力，提前返回 事件绑定方法</li>
+<li>如果浏览器符合W3C标准，使用addEventListener绑定事件</li>
+<li>否则就使用attachEvent来绑定事件</li>
+</ul>
+</li>
+<li><p>removeEvent方法</p>
+<ul>
+<li>根据浏览器能力，提前返回 事件移除方法</li>
+<li>如果浏览器符合W3C标准，使用removeEventListener移除事件处理函数</li>
+<li>否则就使用detachEvent来移除事件处理函数</li>
+</ul>
+</li>
+<li><p>on方法</p>
+<ul>
+<li>功能：给moyas对象上所有dom元素绑定事件</li>
+<li>实现思路<ul>
+<li>遍历this上所有dom元素</li>
+<li>调用addEvent给当前遍历到的dom元素绑定事件</li>
+<li>返回this，实现链式编程</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>off方法</p>
+<ul>
+<li>功能：移除moyas对象上所有dom元素的事件处理函数</li>
+<li>实现思路<ul>
+<li>遍历this上所有dom元素</li>
+<li>调用removeEvent给当前遍历到的dom元素移除相应事件的处理函数</li>
+<li>返回this，实现链式编程</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 提前返回</span></div><div class="line">	<span class="keyword">var</span> addEvent = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">		<span class="comment">// 如果符合W3C标准，使用addEvnetListener绑定事件</span></div><div class="line">		<span class="keyword">if</span> (global.addEventListener) &#123;</div><div class="line">			<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">elem, type, callback, useCapture</span>) </span>&#123;</div><div class="line">				elem.addEventListener(type, callback, useCapture || <span class="literal">false</span>);</div><div class="line">			&#125;;</div><div class="line">		&#125; <span class="keyword">else</span> &#123; <span class="comment">// 否则就使用IE标准的 attachEvent绑定事件</span></div><div class="line">			<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">elem, type, callback</span>) </span>&#123;</div><div class="line">				elem.attachEvent(<span class="string">'on'</span> + type, callback);</div><div class="line">			&#125;;</div><div class="line">		&#125;</div><div class="line">	&#125;();</div><div class="line">	</div><div class="line"></div><div class="line">	<span class="comment">//todo待解决问题</span></div><div class="line">	<span class="comment">//addEventListenter 中的this 指向 事件的触发者</span></div><div class="line">    <span class="comment">//attachEvlent 中的this 指向 window 对象</span></div><div class="line"></div><div class="line"></div><div class="line">	<span class="keyword">var</span> removeEvent = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">		<span class="keyword">if</span> (global.removeEventListener) &#123;</div><div class="line">			<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">elem, type, callback</span>) </span>&#123;</div><div class="line">				elem.removeEventListener(type, callback);</div><div class="line">			&#125;;</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">elem, type, callback</span>) </span>&#123;</div><div class="line">				elem.detachEvent(<span class="string">'on'</span> + type, callback);</div><div class="line">			&#125;;</div><div class="line">		&#125;</div><div class="line">	&#125;();</div><div class="line"></div><div class="line">	<span class="comment">// 事件模块</span></div><div class="line">	moyas.fn.extend(&#123;</div><div class="line">		<span class="attr">on</span>: <span class="function"><span class="keyword">function</span>(<span class="params">type, callback, capture</span>) </span>&#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">this</span>.each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">				addEvent(<span class="keyword">this</span>, type, callback, capture);</div><div class="line">			&#125;);</div><div class="line">		&#125;,</div><div class="line">		<span class="attr">off</span>: <span class="function"><span class="keyword">function</span>(<span class="params">type, callback</span>) </span>&#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">this</span>.each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">				removeEvent(<span class="keyword">this</span>, type, callback);</div><div class="line">			&#125;);</div><div class="line">		&#125;</div><div class="line">	&#125;);</div><div class="line">	moyas.each([<span class="string">'click'</span>, <span class="string">'dblclick'</span>, <span class="string">'keypress'</span>, <span class="string">'keyup'</span>, <span class="string">'keydown'</span>, <span class="string">'mouseover'</span>, <span class="string">'mouseout'</span>,</div><div class="line">		<span class="string">'mouseenter'</span>, <span class="string">'mouseleave'</span>, <span class="string">'mousemove'</span>, <span class="string">'mouseup'</span>, <span class="string">'mousedown'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">type</span>) </span>&#123;</div><div class="line">			moyas.fn[type] = <span class="function"><span class="keyword">function</span>(<span class="params">callback, capture</span>) </span>&#123;</div><div class="line">				<span class="keyword">return</span> <span class="keyword">this</span>.on(type, callback, capture);</div><div class="line">			&#125;;</div><div class="line">		&#125;);</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/22/js原生框架-文档处理/" itemprop="url">
                   javascript原生框架基础到高级(五)--文档处理模块
                 </a>
@@ -451,8 +666,7 @@
           <p>1.attr方法<br>2.html方法<br>3.text方法<br>4.val方法<br>5.prop方法</p>
 <h3 id="attr方法：（setAttribute-和-getAttribute）"><a href="#attr方法：（setAttribute-和-getAttribute）" class="headerlink" title="attr方法：（setAttribute 和 getAttribute）"></a>attr方法：（setAttribute 和 getAttribute）</h3><ol>
 <li>功能：获取（设置）属性节点值</li>
-<li><p>实现思路</p>
-<ul>
+<li>实现思路<ul>
 <li>给原型添加attr方法，定义两个参数：属性节点名字name 以及 属性节点值</li>
 <li>如果只传入一个参数<ul>
 <li>如果参数类型为对象，表示设置多个属性节点值</li>
@@ -698,7 +912,7 @@
       
         
           <p>css样式模块的封装</p>
-<h2 id="each方法的实现"><a href="#each方法的实现" class="headerlink" title="each方法的实现"></a>each方法的实现</h2><p> 1.在写样式之前,先给核心函数添加一个each方法.</p>
+<h3 id="each方法的实现"><a href="#each方法的实现" class="headerlink" title="each方法的实现"></a>each方法的实现</h3><p> 1.在写样式之前,先给核心函数添加一个each方法.</p>
 <p>-实现的代码如下<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">moyas.extend(&#123;</div><div class="line"><span class="attr">each</span>: <span class="function"><span class="keyword">function</span> (<span class="params">obj, callback</span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> i = <span class="number">0</span>,</div><div class="line">                l = obj.length;</div><div class="line">            <span class="keyword">for</span> (; i &lt; l; i++) &#123;</div><div class="line">                <span class="keyword">if</span> (callback.call(obj[i], obj[i], i) === <span class="literal">false</span>) <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/11/19/js原生框架-css样式/#more" rel="contents">
@@ -814,7 +1028,7 @@
 
       
         
-          <h2 id="完善init构造函数"><a href="#完善init构造函数" class="headerlink" title="完善init构造函数"></a>完善init构造函数</h2><pre><code>+ selector类型：
+          <h3 id="完善init构造函数"><a href="#完善init构造函数" class="headerlink" title="完善init构造函数"></a>完善init构造函数</h3><pre><code>+ selector类型：
     - 无效值： null undefined &apos;&apos; false
     - 字符串
         * 选择器：     &apos;div&apos; 根据选择器筛选dom元素，并以伪数组形式 存储在this上
@@ -1365,7 +1579,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
