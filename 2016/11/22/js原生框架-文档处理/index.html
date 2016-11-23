@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="javascript高级,js原生框架,jQuery," />
+  <meta name="keywords" content="js原生框架,javascript高级,jQuery," />
 
 
 
@@ -110,7 +110,7 @@ target类型 选择器、dom元素、dom数组
 定义ret数组变量，用来存储总共分配出去的节点
 遍历this上的每一个dom元素，在遍历target上的每一个dom元素
 首先判断当前dom元素是">
-<meta property="og:updated_time" content="2016-11-23T12:43:53.725Z">
+<meta property="og:updated_time" content="2016-11-23T12:47:50.697Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript原生框架基础到高级(五)--文档处理模块">
 <meta name="twitter:description" content="appendTo方法
@@ -362,11 +362,11 @@ target类型 选择器、dom元素、dom数组
 <li>使用遍历target当前的dom元素 追加 指定节点node</li>
 <li>两层循环结束，操作完成。</li>
 <li>最后将ret转换成moyas对象，作为appendTo方法的返回值。实现链式编程<a id="more"></a>
-<h3 id="append方法"><a href="#append方法" class="headerlink" title="append方法"></a>append方法</h3></li>
+</li>
 </ul>
 </li>
 </ul>
-<ol>
+<h3 id="append方法"><a href="#append方法" class="headerlink" title="append方法"></a>append方法</h3><ol>
 <li>语法：<moyas对象>.append(source);</moyas对象></li>
 <li>功能：将source上的所有dom元素 追加到 moyas对象 上</li>
 <li>实现思路<ul>
@@ -445,8 +445,7 @@ target类型 选择器、dom元素、dom数组
 <h3 id="after方法（选做）"><a href="#after方法（选做）" class="headerlink" title="after方法（选做）"></a>after方法（选做）</h3><ol>
 <li>功能：</li>
 <li>语法: <moyas对象>.after(source)</moyas对象></li>
-<li><p>实现思路</p>
-<ul>
+<li>实现思路<ul>
 <li>定义nextSibling变量，存储dom元素的下一个兄弟节点</li>
 <li>统一source类型为 moyas对象</li>
 <li>遍历this上的每一个dom元素</li>
@@ -456,11 +455,12 @@ target类型 选择器、dom元素、dom数组
 <li>否则要深拷贝节点</li>
 <li>先拿到当前遍历this的dom元素的父节点，调用insertBefore方法在nextSibling前面添加上面得到的新节点</li>
 <li>两层循环完毕，操作完成</li>
-<li>return this实现链式编程<h3 id="remove方法"><a href="#remove方法" class="headerlink" title="remove方法"></a>remove方法</h3></li>
+<li>return this实现链式编程</li>
 </ul>
 </li>
-<li><p>功能：将筛选出来的所有dom元素 删除掉</p>
-</li>
+</ol>
+<h3 id="remove方法"><a href="#remove方法" class="headerlink" title="remove方法"></a>remove方法</h3><ol>
+<li>功能：将筛选出来的所有dom元素 删除掉</li>
 <li>实现思路<ul>
 <li>遍历this上的所有dom元素</li>
 <li>获取当前dom元素的父节点，调用removeChild方法删除自己</li>
@@ -520,9 +520,9 @@ target类型 选择器、dom元素、dom数组
       
         <div class="post-tags">
           
-            <a href="/tags/javascript高级/" rel="tag">#javascript高级</a>
-          
             <a href="/tags/js原生框架/" rel="tag">#js原生框架</a>
+          
+            <a href="/tags/javascript高级/" rel="tag">#javascript高级</a>
           
             <a href="/tags/jQuery/" rel="tag">#jQuery</a>
           
