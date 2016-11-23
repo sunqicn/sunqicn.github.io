@@ -116,7 +116,7 @@ init构造函数 的 位置
 init构造函数 的 位置
 
 如果放在沙箱">
-<meta property="og:updated_time" content="2016-11-23T12:53:06.913Z">
+<meta property="og:updated_time" content="2016-11-23T13:11:19.566Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript原生框架基础到高级(一)--jq框架详解">
 <meta name="twitter:description" content="框架结构说明
@@ -373,9 +373,12 @@ init构造函数 的 位置
 <li><p>可以把构造函数放在moyas函数上，也可以放在moyas函数原型上。</p>
 </li>
 <li><p>处于jQuery之父，在写简单继承模式时，将构造函数放在其原型上。那么在编写框架时，即延续下来了</p>
-<a id="more"></a></li>
+</li>
 </ul>
 </li>
+</ol>
+<a id="more"></a>
+<ol>
 <li><p>init创建出来的对象，最终继承自moyas.prototype。所以可以将init对象称为 moyas对象。</p>
 </li>
 <li><p>由于暴露给用户 的 是 moyas 和 其原型。所以在扩展成员时，只能在这两个对象上扩展。<br> 而在函数对象上扩展的成员 为 静态成员。可以直接通过函数名字来访问。但是，在原型上的成员，<br> 必须创建实例来访问。因此为了实现init对象可以访问 moyas原型上的成员，就基于原型来实现继承。</p>
