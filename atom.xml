@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-27T15:51:02.000Z</updated>
+  <updated>2016-11-30T16:56:01.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/11/27/Markdown%E8%A7%84%E8%8C%83/"/>
     <id>http://yoursite.com/2016/11/27/Markdown规范/</id>
     <published>2016-11-27T15:35:41.000Z</published>
-    <updated>2016-11-27T15:51:02.000Z</updated>
+    <updated>2016-11-30T16:56:01.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><h3 id="Markdowm-介绍"><a href="#Markdowm-介绍" class="headerlink" title="Markdowm 介绍"></a>Markdowm 介绍</h3><p>轻量级标记语言（html、xml），2004 年被 John Gruber 创造，<br>它允许人们“使用易读易写的纯文本格式编写文档”，<br>Markdown 最重要的设计就是可读性， Markdown 可以选择性的转换为 HTML 文档格式，<br>很多网站目前都使用了 Markdown 或者其变种，例如Github、简书等大型社区。</p>
 <a id="more"></a>
@@ -33,8 +33,8 @@
 <h2 id="安装和配置编写预览环境"><a href="#安装和配置编写预览环境" class="headerlink" title="安装和配置编写预览环境"></a>安装和配置编写预览环境</h2><h3 id="webstorm"><a href="#webstorm" class="headerlink" title="webstorm"></a>webstorm</h3><h3 id="Visual-Studio-Code"><a href="#Visual-Studio-Code" class="headerlink" title="Visual Studio Code"></a>Visual Studio Code</h3><hr>
 <h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><h4 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h4><p>轻量级标记语言.<br>不会换行<br>连续写的话两个空格 再换行就是换行(这个就是空格加换行实现的)</p>
 <p>再起一个段落就是中间保持换行</p>
-<h4 id="加粗"><a href="#加粗" class="headerlink" title="加粗"></a>加粗</h4><p>加粗的<strong>字体</strong> 使用<strong> +文字+ </strong> 实现字体的加粗</p>
-<h4 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h4><p>倾斜的<em>字体</em> 使用 <em> +文字+ </em> 实现字体的加粗</p>
+<h4 id="加粗"><a href="#加粗" class="headerlink" title="加粗"></a>加粗</h4><p>加粗的<strong>字体</strong> 使用<code>** +文字+ **</code>实现字体的加粗</p>
+<h4 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h4><p>倾斜的<em>字体</em> 使用<code>* +文字+ *</code>实现字体的加粗</p>
 <h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><h5 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h5><ul>
 <li>Markdowm 是一个轻量级的标记语言</li>
 <li>一级列表建议用 - 号<ul>
