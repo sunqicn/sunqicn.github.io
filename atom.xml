@@ -206,9 +206,9 @@
       <category term="javascrip框架" scheme="http://yoursite.com/categories/javascrip%E6%A1%86%E6%9E%B6/"/>
     
     
-      <category term="javascript高级" scheme="http://yoursite.com/tags/javascript%E9%AB%98%E7%BA%A7/"/>
-    
       <category term="js原生框架" scheme="http://yoursite.com/tags/js%E5%8E%9F%E7%94%9F%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="javascript高级" scheme="http://yoursite.com/tags/javascript%E9%AB%98%E7%BA%A7/"/>
     
       <category term="jQuery" scheme="http://yoursite.com/tags/jQuery/"/>
     
@@ -352,9 +352,9 @@
       <category term="javascrip框架" scheme="http://yoursite.com/categories/javascrip%E6%A1%86%E6%9E%B6/"/>
     
     
-      <category term="javascript高级" scheme="http://yoursite.com/tags/javascript%E9%AB%98%E7%BA%A7/"/>
-    
       <category term="js原生框架" scheme="http://yoursite.com/tags/js%E5%8E%9F%E7%94%9F%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="javascript高级" scheme="http://yoursite.com/tags/javascript%E9%AB%98%E7%BA%A7/"/>
     
       <category term="jQuery" scheme="http://yoursite.com/tags/jQuery/"/>
     
@@ -548,9 +548,9 @@
       <category term="javascrip框架" scheme="http://yoursite.com/categories/javascrip%E6%A1%86%E6%9E%B6/"/>
     
     
-      <category term="javascript高级" scheme="http://yoursite.com/tags/javascript%E9%AB%98%E7%BA%A7/"/>
-    
       <category term="js原生框架" scheme="http://yoursite.com/tags/js%E5%8E%9F%E7%94%9F%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="javascript高级" scheme="http://yoursite.com/tags/javascript%E9%AB%98%E7%BA%A7/"/>
     
       <category term="jQuery" scheme="http://yoursite.com/tags/jQuery/"/>
     
@@ -657,9 +657,9 @@
       <category term="javascrip框架" scheme="http://yoursite.com/categories/javascrip%E6%A1%86%E6%9E%B6/"/>
     
     
-      <category term="javascript高级" scheme="http://yoursite.com/tags/javascript%E9%AB%98%E7%BA%A7/"/>
-    
       <category term="js原生框架" scheme="http://yoursite.com/tags/js%E5%8E%9F%E7%94%9F%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="javascript高级" scheme="http://yoursite.com/tags/javascript%E9%AB%98%E7%BA%A7/"/>
     
       <category term="jQuery" scheme="http://yoursite.com/tags/jQuery/"/>
     
@@ -766,11 +766,98 @@
       <category term="javascrip框架" scheme="http://yoursite.com/categories/javascrip%E6%A1%86%E6%9E%B6/"/>
     
     
+      <category term="js原生框架" scheme="http://yoursite.com/tags/js%E5%8E%9F%E7%94%9F%E6%A1%86%E6%9E%B6/"/>
+    
       <category term="javascript高级" scheme="http://yoursite.com/tags/javascript%E9%AB%98%E7%BA%A7/"/>
+    
+      <category term="jQuery" scheme="http://yoursite.com/tags/jQuery/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>javascript原生框架(八)--ajax异步请求和jsonp跨域</title>
+    <link href="http://yoursite.com/2016/11/19/js%E5%8E%9F%E7%94%9F%E6%A1%86%E6%9E%B6-ajax-jsonp/"/>
+    <id>http://yoursite.com/2016/11/19/js原生框架-ajax-jsonp/</id>
+    <published>2016-11-19T15:51:03.000Z</published>
+    <updated>2016-12-06T15:48:17.521Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Ajax请求流程"><a href="#Ajax请求流程" class="headerlink" title="Ajax请求流程"></a>Ajax请求流程</h3><ol>
+<li><p>创建一个请求对象</p>
+</li>
+<li><p>格式化数据</p>
+<ul>
+<li>将格式化后的数据，参数与值都要重新编码</li>
+</ul>
+</li>
+<li><p>与服务器建立连接</p>
+</li>
+<li><p>监听请求状态</p>
+</li>
+<li><p>发送请求</p>
+</li>
+</ol>
+<a id="more"></a>
+<h3 id="Jsonp请求"><a href="#Jsonp请求" class="headerlink" title="Jsonp请求"></a>Jsonp请求</h3><ol>
+<li><p>跨域 只能发送 GET请求。一种不安全的请求方式。</p>
+</li>
+<li><p>原理：由于dom元素的 src属性 具有跨域功能。在实现跨域请求时，为了方便就使用script标签来做。</p>
+</li>
+<li><p>流程</p>
+<ul>
+<li>创建请求对象，就是 创建一个script标签</li>
+<li>将上述创建的script标签添加到页面的head标签下</li>
+<li>格式化数据</li>
+<li>创建全局回调函数<ul>
+<li>删除</li>
+</ul>
+</li>
+<li>设置超时时间，如果超过此时间，也没有得到数据，表示请求失败。否则，请求成功。<ul>
+<li>删除</li>
+</ul>
+</li>
+<li>发送请求：指定script标签的src属性值。</li>
+</ul>
+</li>
+</ol>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//ajax 模块</span></div><div class="line">    moyas.extend(&#123;</div><div class="line">        <span class="attr">ajaxSetting</span>: &#123;</div><div class="line">            <span class="attr">url</span>: <span class="string">''</span>,</div><div class="line">            <span class="attr">type</span>: <span class="string">'GET'</span>,</div><div class="line">            <span class="attr">dataType</span>: <span class="string">'text'</span>,</div><div class="line">            <span class="attr">contentType</span>: <span class="string">'application/x-www-form-urlencoded'</span>,</div><div class="line">            <span class="attr">jsonp</span>: <span class="string">'callback'</span>,</div><div class="line">            <span class="attr">jsonpCallback</span>: <span class="string">''</span>,</div><div class="line">            <span class="attr">data</span>: <span class="literal">null</span>,</div><div class="line">            <span class="attr">async</span>: <span class="literal">true</span>,</div><div class="line">            <span class="attr">success</span>: <span class="literal">null</span>,</div><div class="line">            <span class="attr">fail</span>: <span class="literal">null</span>,</div><div class="line">            <span class="attr">timeout</span>: <span class="number">0</span></div><div class="line">        &#125;,</div><div class="line">        <span class="attr">ajax</span>: <span class="function"><span class="keyword">function</span>(<span class="params">config</span>) </span>&#123;</div><div class="line">            <span class="comment">//过滤无效的参数</span></div><div class="line">            <span class="keyword">if</span> (!config || !config.url) &#123;</div><div class="line">                <span class="built_in">console</span>.warn(<span class="string">"参数异常"</span>);</div><div class="line">                <span class="keyword">return</span>;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (config.dataType.toLowerCase() === <span class="string">'jsonp'</span>) &#123;</div><div class="line">                jsonp(config);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                ajax(config);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">jsonp</span>(<span class="params">config</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> scriptElem,</div><div class="line">            headElem,</div><div class="line">            context = &#123;&#125;,</div><div class="line">            callbackName;</div><div class="line"></div><div class="line">        <span class="comment">//过滤无效的参数</span></div><div class="line">        <span class="keyword">if</span> (!config || !config.url) &#123;</div><div class="line">            <span class="built_in">console</span>.warn(<span class="string">'参数异常'</span>);</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        moyas.extend(moyas.ajaxSetting, context);</div><div class="line">        moyas.extend(config, context);</div><div class="line"></div><div class="line">        <span class="comment">//1 创建对象</span></div><div class="line">        scriptElem = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</div><div class="line"></div><div class="line">        <span class="comment">//2 将创建的script标签添加到页面的head下</span></div><div class="line">        headElem = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>];</div><div class="line">        headElem.appendChild(scriptElem);</div><div class="line"></div><div class="line">        <span class="comment">//3 格式化数据</span></div><div class="line">        context.url += <span class="string">'?'</span> + formatData(context.data);</div><div class="line"></div><div class="line">        <span class="comment">//4 创建全局回调函数的名字</span></div><div class="line">        callbackName = context.jsonpCallback ? context.jsonpCallback :</div><div class="line">            <span class="string">'jsonp_'</span> + (+<span class="keyword">new</span> <span class="built_in">Date</span>);</div><div class="line"></div><div class="line">        <span class="comment">//把全局回调函数的名字发给服务器</span></div><div class="line">        context.url += <span class="string">'&amp;'</span> + context.jsonp + <span class="string">'='</span> + callbackName;</div><div class="line"></div><div class="line">        <span class="built_in">window</span>[callbackName] = <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">            <span class="comment">//请求成功</span></div><div class="line">            <span class="comment">//删除动态创建的script 标签</span></div><div class="line">            headElem.removeChild(scriptElem);</div><div class="line">            <span class="comment">//删除全局回调函数</span></div><div class="line">            <span class="keyword">delete</span> <span class="built_in">window</span>[callbackName];</div><div class="line">            <span class="comment">//清除超时的延迟函数</span></div><div class="line">            <span class="built_in">window</span>.clearTimeout(scriptElem.timer);</div><div class="line">            <span class="comment">//执行用户指定的成功的回调函数</span></div><div class="line">            context.success &amp;&amp; context.success(data);</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        <span class="comment">//设置超时时间</span></div><div class="line">        <span class="keyword">if</span> (context.timeout) &#123;</div><div class="line">            scriptElem.timer = <span class="built_in">window</span>.setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="comment">//请求失败</span></div><div class="line">                <span class="comment">//删除动态创建的script标签</span></div><div class="line">                headElem.removeChild(scriptElem);</div><div class="line">                <span class="comment">//删除全局回调函数</span></div><div class="line">                <span class="keyword">delete</span> <span class="built_in">window</span>[callbackName];</div><div class="line">                <span class="comment">//执行用户指定的失败的回调函数</span></div><div class="line">                context.fail &amp;&amp; context.fail(&#123;</div><div class="line">                    <span class="string">'message'</span>: <span class="string">'请求超时'</span></div><div class="line">                &#125;);</div><div class="line">            &#125;, context.timeout);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">//发送请求</span></div><div class="line">        scriptElem.src = context.url;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">createRequest</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="built_in">window</span>.XMLHttpRequest ? <span class="keyword">new</span> <span class="built_in">window</span>.XMLHttpRequest() :</div><div class="line">            <span class="keyword">new</span> ActiveXObject(<span class="string">'Microsoft.XMLHTTP'</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">formatData</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> ret = [];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> k <span class="keyword">in</span> data) &#123;</div><div class="line">            ret.push(<span class="built_in">window</span>.encodeURIComponent(k) + <span class="string">'='</span> + <span class="built_in">window</span>.encodeURIComponent(data[k]));</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">//如果不想从服务器缓存中读取数据</span></div><div class="line">        ret.push((<span class="string">'_='</span> + <span class="built_in">Math</span>.random()).replace(<span class="string">'.'</span>, <span class="string">''</span>));</div><div class="line">        <span class="keyword">return</span> ret.join(<span class="string">'&amp;'</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">ajax</span>(<span class="params">config</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> context = &#123;&#125;,</div><div class="line">            xhr,</div><div class="line">            postData = <span class="string">''</span>;</div><div class="line">        <span class="comment">//过滤无效的参数</span></div><div class="line">        <span class="keyword">if</span> (!config || !config.url) &#123;</div><div class="line">            consloe.warn(<span class="string">'参数异常'</span>);</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">//获取默认配置信息</span></div><div class="line">        moyas.extend(moyas.ajaxSetting, context);</div><div class="line">        <span class="comment">//用户配置信息 覆盖默认配置</span></div><div class="line">        moyas.extend(config, context);</div><div class="line"></div><div class="line">        <span class="comment">//1 创建请求对象</span></div><div class="line">        xhr = createRequest();</div><div class="line">        <span class="comment">//2 格式话数据</span></div><div class="line">        <span class="keyword">if</span> (context.data) &#123;</div><div class="line">            postData = formatData(context.data);</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//3 与服务器建立链接</span></div><div class="line">        <span class="keyword">if</span> (context.type.toUpperCase() === <span class="string">'GET'</span>) &#123;</div><div class="line">            xhr.open(<span class="string">'GET'</span>, context.url + <span class="string">'?'</span> + postData, context.async);</div><div class="line">            postData = <span class="literal">null</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">//模拟表单提交 设置请求头信息</span></div><div class="line">            xhr.setRequestHeader(<span class="string">'content-Type'</span>, context.contentType);</div><div class="line">            xhr.open(<span class="string">'OPST'</span>, context.url, contex.async);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">//监听请求状态</span></div><div class="line">        xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">if</span> (xhr.readyState === <span class="number">4</span>) &#123;</div><div class="line">                <span class="keyword">if</span> (xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr.status &lt; <span class="number">300</span> || xhr.status === <span class="number">304</span>)&#123;</div><div class="line">                    <span class="comment">//获取到请求回来的数据</span></div><div class="line">                    <span class="keyword">var</span> text = xhr.responseText;</div><div class="line">                    <span class="comment">//如果指定的数据格式为 json 那么就将其转换成json 对象</span></div><div class="line">                    text = context.dataType.toLowerCase() === <span class="string">'json'</span>?<span class="built_in">JSON</span>.parse(text) : text;</div><div class="line"></div><div class="line">                    context.success &amp;&amp; context.success(text);</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    context.fail &amp;&amp; context.fail(&#123;</div><div class="line">                        <span class="string">"errorCode"</span>: xhr.status,</div><div class="line">                        <span class="string">"massage"</span>: <span class="string">"请求超时"</span></div><div class="line">                    &#125;);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">        <span class="comment">//发送请求</span></div><div class="line">        xhr.send(postData);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>jQuery框架就介绍到这里了</p>
+<p>前面封装的整体代码</p>
+<p>github 地址:<code>https://github.com/moyas/Tutorial/tree/master/my-jQuery</code></p>
+<p><a href="https://github.com/moyas/Tutorial/tree/master/my-jQuery" target="_blank" rel="external">点击链接</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Ajax请求流程&quot;&gt;&lt;a href=&quot;#Ajax请求流程&quot; class=&quot;headerlink&quot; title=&quot;Ajax请求流程&quot;&gt;&lt;/a&gt;Ajax请求流程&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;创建一个请求对象&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;格式化数据&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;将格式化后的数据，参数与值都要重新编码&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;与服务器建立连接&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;监听请求状态&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;发送请求&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="javascrip框架" scheme="http://yoursite.com/categories/javascrip%E6%A1%86%E6%9E%B6/"/>
+    
     
       <category term="js原生框架" scheme="http://yoursite.com/tags/js%E5%8E%9F%E7%94%9F%E6%A1%86%E6%9E%B6/"/>
     
+      <category term="javascript高级" scheme="http://yoursite.com/tags/javascript%E9%AB%98%E7%BA%A7/"/>
+    
       <category term="jQuery" scheme="http://yoursite.com/tags/jQuery/"/>
+    
+      <category term="ajax" scheme="http://yoursite.com/tags/ajax/"/>
+    
+      <category term="jsonp" scheme="http://yoursite.com/tags/jsonp/"/>
     
   </entry>
   
@@ -845,9 +932,9 @@
       <category term="javascrip框架" scheme="http://yoursite.com/categories/javascrip%E6%A1%86%E6%9E%B6/"/>
     
     
-      <category term="javascript高级" scheme="http://yoursite.com/tags/javascript%E9%AB%98%E7%BA%A7/"/>
-    
       <category term="js原生框架" scheme="http://yoursite.com/tags/js%E5%8E%9F%E7%94%9F%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="javascript高级" scheme="http://yoursite.com/tags/javascript%E9%AB%98%E7%BA%A7/"/>
     
       <category term="jQuery" scheme="http://yoursite.com/tags/jQuery/"/>
     
@@ -921,9 +1008,9 @@
       <category term="javascrip框架" scheme="http://yoursite.com/categories/javascrip%E6%A1%86%E6%9E%B6/"/>
     
     
-      <category term="javascript高级" scheme="http://yoursite.com/tags/javascript%E9%AB%98%E7%BA%A7/"/>
-    
       <category term="js原生框架" scheme="http://yoursite.com/tags/js%E5%8E%9F%E7%94%9F%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="javascript高级" scheme="http://yoursite.com/tags/javascript%E9%AB%98%E7%BA%A7/"/>
     
       <category term="jQuery" scheme="http://yoursite.com/tags/jQuery/"/>
     
