@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-16T15:12:40.306Z</updated>
+  <updated>2018-01-16T15:15:04.635Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/04/20/git%E7%9A%84%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/"/>
     <id>http://yoursite.com/2017/04/20/git的简单用法/</id>
     <published>2017-04-20T15:43:55.000Z</published>
-    <updated>2018-01-16T15:12:40.306Z</updated>
+    <updated>2018-01-16T15:15:04.635Z</updated>
     
     <content type="html"><![CDATA[<h3 id="git简介"><a href="#git简介" class="headerlink" title="git简介"></a>git简介</h3><pre><code>Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。  
 
@@ -31,14 +31,14 @@ Git是一个开源的分布式版本控制系统，可以有效、高速的处�
 <li>git add *表示添加全部的文件。</li>
 </ul>
 </li>
-<li>提交<ul>
+<li><p>提交</p>
+<ul>
 <li>git commit -m \”本次提交的描述\”<a id="more"></a>
-</li>
+<h3 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h3></li>
 </ul>
 </li>
-</ul>
-<h3 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h3><ul>
-<li>git status ，命令可以让我们时刻掌握仓库当前的状态</li>
+<li><p>git status ，命令可以让我们时刻掌握仓库当前的状态</p>
+</li>
 <li>git diff 文件名，记不清楚修改了什么内容，可以使用这个命令查看。</li>
 <li>git log 可以查看版本的信息。</li>
 <li>git reflog,可以记录每一次指令。可查看回退之前的版本号。</li>
@@ -84,7 +84,8 @@ Git是一个开源的分布式版本控制系统，可以有效、高速的处�
 &lt;li&gt;git add *表示添加全部的文件。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;提交&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;提交&lt;/p&gt;
+&lt;ul&gt;
 &lt;li&gt;git commit -m \”本次提交的描述\”
     
     </summary>
