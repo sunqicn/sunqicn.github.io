@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-19T12:11:08.268Z</updated>
+  <updated>2018-01-19T12:19:44.822Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://yoursite.com/2017/07/08/react%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
     <id>http://yoursite.com/2017/07/08/react的生命周期/</id>
     <published>2017-07-08T11:44:02.000Z</published>
-    <updated>2018-01-19T12:11:08.268Z</updated>
+    <updated>2018-01-19T12:19:44.822Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="react的生命周期图"><a href="#react的生命周期图" class="headerlink" title="react的生命周期图"></a>react的生命周期图</h2><p><img src="./images/1814354-4bf62e54553a32b7.png" alt="react的生命周期">  </p>
+    <content type="html"><![CDATA[<h2 id="react的生命周期图"><a href="#react的生命周期图" class="headerlink" title="react的生命周期图"></a>react的生命周期图</h2><p><img src="./img/1814354-4bf62e54553a32b7.png" alt="react的生命周期">  </p>
 <a id="more"></a>
 <h2 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h2><h3 id="首次实例化"><a href="#首次实例化" class="headerlink" title="首次实例化"></a>首次实例化</h3><p>getDefaultProps<br>getInitialState<br>componentWillMount<br>render<br>componentDidMount</p>
 <h3 id="实例化完成后的更新"><a href="#实例化完成后的更新" class="headerlink" title="实例化完成后的更新"></a>实例化完成后的更新</h3><p>getInitialState<br>componentWillMount<br>render<br>componentDidMount</p>
@@ -52,7 +52,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;react的生命周期图&quot;&gt;&lt;a href=&quot;#react的生命周期图&quot; class=&quot;headerlink&quot; title=&quot;react的生命周期图&quot;&gt;&lt;/a&gt;react的生命周期图&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;./images/1814354-4bf62e54553a32b7.png&quot; alt=&quot;react的生命周期&quot;&gt;  &lt;/p&gt;
+      &lt;h2 id=&quot;react的生命周期图&quot;&gt;&lt;a href=&quot;#react的生命周期图&quot; class=&quot;headerlink&quot; title=&quot;react的生命周期图&quot;&gt;&lt;/a&gt;react的生命周期图&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;./img/1814354-4bf62e54553a32b7.png&quot; alt=&quot;react的生命周期&quot;&gt;  &lt;/p&gt;
     
     </summary>
     
