@@ -1772,7 +1772,7 @@ Git是一个开源的分布式版本控制系统，可以有效、高速的处�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/19/js原生框架-css样式/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/19/js原生框架-ajax/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="SunQI">
@@ -1791,7 +1791,7 @@ Git是一个开源的分布式版本控制系统，可以有效、高速的处�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/11/19/js原生框架-css样式/" itemprop="url">javascript原生框架(三)--css样式模块的封装</a></h1>
+                <a class="post-title-link" href="/2016/11/19/js原生框架-ajax/" itemprop="url">javascript原生框架(八)--ajax异步请求和jsonp跨域</a></h1>
         
 
         <div class="post-meta">
@@ -1843,7 +1843,7 @@ Git是一个开源的分布式版本控制系统，可以有效、高速的处�
 
           
           
-             <span id="/2016/11/19/js原生框架-css样式/" class="leancloud_visitors" data-flag-title="javascript原生框架(三)--css样式模块的封装">
+             <span id="/2016/11/19/js原生框架-ajax/" class="leancloud_visitors" data-flag-title="javascript原生框架(八)--ajax异步请求和jsonp跨域">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1875,12 +1875,24 @@ Git是一个开源的分布式版本控制系统，可以有效、高速的处�
 
       
         
-          <p>css样式模块的封装</p>
-<h3 id="each方法的实现"><a href="#each方法的实现" class="headerlink" title="each方法的实现"></a>each方法的实现</h3><p> 1.在写样式之前,先给核心函数添加一个each方法.</p>
-<p>-实现的代码如下<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">moyas.extend(&#123;</div><div class="line"><span class="attr">each</span>: <span class="function"><span class="keyword">function</span> (<span class="params">obj, callback</span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> i = <span class="number">0</span>,</div><div class="line">                l = obj.length;</div><div class="line">            <span class="keyword">for</span> (; i &lt; l; i++) &#123;</div><div class="line">                <span class="keyword">if</span> (callback.call(obj[i], obj[i], i) === <span class="literal">false</span>) <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+          <h3 id="Ajax请求流程"><a href="#Ajax请求流程" class="headerlink" title="Ajax请求流程"></a>Ajax请求流程</h3><ol>
+<li><p>创建一个请求对象</p>
+</li>
+<li><p>格式化数据</p>
+<ul>
+<li>将格式化后的数据，参数与值都要重新编码</li>
+</ul>
+</li>
+<li><p>与服务器建立连接</p>
+</li>
+<li><p>监听请求状态</p>
+</li>
+<li><p>发送请求</p>
+</li>
+</ol>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/11/19/js原生框架-css样式/#more" rel="contents">
+            <a class="btn" href="/2016/11/19/js原生框架-ajax/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
